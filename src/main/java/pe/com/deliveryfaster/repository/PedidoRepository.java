@@ -1,0 +1,11 @@
+package pe.com.deliveryfaster.repository;
+
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import pe.com.deliveryfaster.entity.Pedido;
+
+public interface PedidoRepository extends JpaRepository<Pedido,Long>{
+    @Query("select p from Pedido p where p.estado='1'")
+    List<Pedido> findAllCustom();
+}
